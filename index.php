@@ -31,6 +31,7 @@ an HTML5 mobile app using jQuery Mobile
 <html>
 <head>
 <title>Contacts</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <!--
     For development, you may want to load jQuery/jQuery Mobile from their CDN. 
