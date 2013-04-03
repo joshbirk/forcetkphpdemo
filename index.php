@@ -35,13 +35,15 @@ an HTML5 mobile app using jQuery Mobile
 <!--
     For development, you may want to load jQuery/jQuery Mobile from their CDN. 
 -->
-<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a4/jquery.mobile-1.0a4.min.css" />
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.5.2.min.js"></script>
+<link rel="stylesheet" href="jquery.mobile-1.3.0.min.css" />
+<script type="text/javascript" src="jquery.min.js"></script>
 <!--
 From jQuery-swip - http://code.google.com/p/jquery-swip/source/browse/trunk/jquery.popupWindow.js 
--->
+
 <script type="text/javascript" src="static/jquery.popup.js"></script>
-<script type="text/javascript" src="http://code.jquery.com/mobile/1.0a4/jquery.mobile-1.0a4.min.js"></script>
+-->
+
+<script type="text/javascript" src="jquerymobile.js"></script>
 <script type="text/javascript" src="forcetk.js"></script>
 <script type="text/javascript" src="mobileapp.js"></script>
 <script type="text/javascript">
