@@ -130,11 +130,11 @@ function createHandler(e) {
             fields[child.attr("name")] = child.val();
         }
     });
-    $j.mobile.pageLoading();
+    $.mobile.loading( "show", { text: 'Loading Contacts', textVisible: true } );
     client.create('Contact', fields,
     function(response) {
         getRecords(function() {
-            $j.mobile.pageLoading(true);
+            $.mobile.loading( "hide" );
             $j.mobile.changePage('#mainpage', "slide", true, true);
         });
     }, errorCallback);

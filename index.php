@@ -48,7 +48,7 @@ From jQuery-swip - http://code.google.com/p/jquery-swip/source/browse/trunk/jque
 // OAuth Configuration
 var loginUrl    = 'https://login.salesforce.com/';
 var clientId    = '3MVG9A2kN3Bn17htFsz.Zr8IKNPRTz3FiPC7xCYILGF8XaGsUKX44CelH0LkqEC0GaOdrZk_Mkw5rM.mMtWmJ'; //demo only
-var redirectUri = 'https://forcetkphpdemo.herokuapp.com/oauthcallback.html';
+var redirectUri = 'https://forcetkphpdemo.herokuapp.com/index.php';
 var proxyUrl    = 'https://forcetkphpdemo.herokuapp.com/proxy.php?mode=native';
 
 // We'll get an instance of the REST API client in a callback after we do 
@@ -61,13 +61,26 @@ if (window.$j === undefined) {
 }
 
 $j(document).ready(function() {
-	$j('#login').popupWindow({ 
+/*	$j('#login').popupWindow({ 
 		windowURL: getAuthorizeUrl(loginUrl, clientId, redirectUri),
 		windowName: 'Connect',
 		centerBrowser: 1,
 		height:480, 
 		width:320
-	});
+	}); */
+	var oauthResponse = {};
+
+	if (window.location.hash) {
+		var message = window.location.hash.substr(1);
+		var nvps = message.split('&');
+		for (var nvp in nvps) {
+		    var parts = nvps[nvp].split('=');
+			oauthResponse[parts[0]] = unescape(parts[1]);
+		}
+	} else {
+		url = getAuthorizeUrl(loginUrl, clientId, redirectUri);
+		window.location.href = url;
+	}
 });
 
 function getAuthorizeUrl(loginUrl, clientId, redirectUri){
