@@ -169,7 +169,7 @@
 // Change these configuration options if needed, see above descriptions for info.
 $enable_jsonp    = false;
 $enable_native   = true;
-$valid_forcecom_url_regex = '/https:\/\/.*\.(salesforce|database|cloudforce)\.com/';
+$valid_forcecom_url_regex = '/https:\/\/.*\.(salesforce|database|cloudforce|herokuapp)\.com/';
 
 
 $url_query_param = null; // 'url'
@@ -202,6 +202,13 @@ if ( !$url ) {
   $status['http_code'] = 400;
   $status['status_text'] = 'Bad Request';
   
+} else if ( !preg_match( $valid_forcecom_url_regex, $url )) {
+  
+  // Passed url doesn't match $valid_url_regex.
+  $contents = 'ERROR: invalid url';
+  $status['http_code'] = 400;
+  $status['status_text'] = 'Bad Request';
+
 } else {
 
   if ( isset( $cors_allow_origin ) ) {
