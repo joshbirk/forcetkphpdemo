@@ -65,7 +65,7 @@ $j(document).ready(function() {
 	console.log('DOCUMENT READY '+window.location.href);
 	if(client.sessionId == null) {
 		var oauthResponse = {};
-		if (window.location.hash) {
+		if (window.location.hash && window.location.href.indexOf('access_token') > 0) {
 			var message = window.location.hash.substr(1);
 			var nvps = message.split('&');
 			for (var nvp in nvps) {
