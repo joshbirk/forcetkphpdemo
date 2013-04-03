@@ -30,7 +30,7 @@ an HTML5 mobile app using jQuery Mobile
 -->
 <html>
 <head>
-<title>Accounts</title>
+<title>Contacts</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <!--
     For development, you may want to load jQuery/jQuery Mobile from their CDN. 
@@ -106,9 +106,9 @@ function sessionCallback(oauthResponse) {
 		addClickListeners();
 
 	    $j.mobile.changePage('#mainpage',"slide",false,true);
-	    $j.mobile.pageLoading();
+	    $j.mobile.loading( "show", { text: 'Loading', textVisible: true } );
 	    getRecords(function(){
-	        $j.mobile.pageLoading(true);
+	        $j.mobile.loading( "hide" );
 	    });
     }
 }
