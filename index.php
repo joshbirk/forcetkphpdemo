@@ -100,7 +100,7 @@ function sessionCallback(oauthResponse) {
 
 		addClickListeners();
 
-	    $j.mobile.changePage('#mainpage',"slide",false,true);
+	    $j.mobile.changePage( "#mainpage" , { reverse: false, changeHash: true } );
 	    $j.mobile.loading( "show", { text: 'Loading', textVisible: true } );
 	    getRecords(function(){
 	        $j.mobile.loading( "hide" );

@@ -42,7 +42,7 @@ function addClickListeners() {
         $j('#formheader').html('New Contact');
         setButtonText('#actionbtn', 'Create');
         $j('#actionbtn').unbind('click.btn').bind('click.btn', createHandler);
-        $j.mobile.changePage('#editpage', "slide", false, true);
+        $j.mobile.changePage( "#editpage" , { reverse: false, changeHash: false } );
     });
 
     $j('#deletebtn').click(function(e) {
@@ -54,7 +54,7 @@ function addClickListeners() {
         function(response) {
             getAccounts(function() {
                 $j.mobile.loading( "hide");
-                $j.mobile.changePage('#mainpage', "slide", true, true);
+                $j.mobile.changePage( "#mainpage" , { reverse: false, changeHash: false } );
             });
         }, errorCallback);
     });
@@ -75,7 +75,7 @@ function addClickListeners() {
             .unbind('click.btn')
             .bind('click.btn', updateHandler);
             $j.mobile.loading( "hide");
-            $j.mobile.changePage('#editpage', "slide", false, true);
+            $j.mobile.changePage( "#editpage" , { reverse: false, changeHash: false } );
         }, errorCallback);
     });
 }
@@ -84,7 +84,7 @@ function addClickListeners() {
 function getRecords(callback) {
 	console.log('In getRecords');
     $j('#list').empty();
-    client.query("SELECT Id, Name FROM Contact ORDER BY Name LIMIT 20"
+    client.query("SELECT Id, Name, FirstName, LastName FROM Contact ORDER BY Name LIMIT 20"
     ,
     function(response) {
 		console.log('recieved'+response.records);
@@ -97,14 +97,14 @@ function getRecords(callback) {
             .click(function(e) {
                 e.preventDefault();
                 $j.mobile.loading( "show", { text: 'Loading', textVisible: true } );
-                client.retrieve("Contact", id, "Name,Id,Email"
+                client.retrieve("Contact", id, "Name,FirstName,LastName,Id,Email"
                 ,
                 function(response) {
                     $j('#Name').html(response.Name);
                     $j('#Email').html(response.Email);
                     $j('#Id').val(response.Id);
                     $j.mobile.loading("hide");
-                    $j.mobile.changePage('#detailpage', "slide", false, true);
+                    $j.mobile.changePage( "#detailpage" , { reverse: false, changeHash: false } );
                 }, errorCallback);
             })
             .appendTo('#list')
@@ -135,7 +135,7 @@ function createHandler(e) {
     function(response) {
         getRecords(function() {
             $j.mobile.loading( "hide" );
-            $j.mobile.changePage('#mainpage', "slide", true, true);
+            $j.mobile.changePage( "#mainpage" , { reverse: false, changeHash: false } );
         });
     }, errorCallback);
 }
@@ -157,7 +157,7 @@ function updateHandler(e) {
     function(response) {
         getAccounts(function() {
             $j.mobile.loading( "hide");
-            $j.mobile.changePage('#mainpage', "slide", true, true);
+            $j.mobile.changePage( "#mainpage" , { reverse: false, changeHash: false } );
         });
     }, errorCallback);
 }
