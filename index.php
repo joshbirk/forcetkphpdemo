@@ -62,6 +62,7 @@ if (window.$j === undefined) {
 }
 
 $j(document).ready(function() {
+	console.log('DOCUMENT READY'+window.location.href);
 	if(client.sessionId == null) {
 		var oauthResponse = {};
 		if (window.location.hash && client.sessionId == null) {
@@ -98,11 +99,12 @@ function sessionCallback(oauthResponse) {
         client.setSessionToken(oauthResponse.access_token, null, oauthResponse.instance_url);
 
 		addClickListeners();
-
+		
+		$j.mobile.changePage( "#mainpage" , { reverse: false, changeHash: true } );
 	    $j.mobile.loading( "show", { text: 'Loading', textVisible: true } );
 	    getRecords(function(){
 	        $j.mobile.loading( "hide" );
-			$j.mobile.changePage( "#mainpage" , { reverse: false, changeHash: true } );
+			
 		});
     }
 }
