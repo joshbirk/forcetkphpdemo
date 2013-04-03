@@ -119,12 +119,7 @@ function sessionCallback(oauthResponse) {
 	<div data-role="page" data-theme="b" id="loginpage">
 
 	    <div data-role="header">
-	        <h1>Login</h1>
-	    </div>
-	    <div data-role="content">
-	        <form>
-	            <button data-role="button" id="login">Login</button>
-	        </form>
+	        <h1>Logging in...</h1>
 	    </div>
 	    <div data-role="footer">
 	        <h4>Force.com</h4>
@@ -154,9 +149,9 @@ function sessionCallback(oauthResponse) {
 	    <div data-role="content">
 	        <table>
 	            <tr><td>Name:</td><td id="Name"></td></tr>
-	            <tr><td>Email:</td><td id="Industry"></td></tr>
+	            <tr><td>Email:</td><td id="Email"></td></tr>
 	        </table>
-	        <form name="accountdetail" id="accountdetail">
+	        <form name="detail" id="detail">
 	            <input type="hidden" name="Id" id="Id" />
 	            <button data-role="button" id="editbtn">Edit</button>
 	            <button data-role="button" id="deletebtn" data-icon="delete" 
