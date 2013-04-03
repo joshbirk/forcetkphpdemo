@@ -70,6 +70,7 @@ $j(document).ready(function() {
 			for (var nvp in nvps) {
 			    var parts = nvps[nvp].split('=');
 				oauthResponse[parts[0]] = unescape(parts[1]);
+				console.log('init app');
 				sessionCallback(oauthResponse);
 			}
 		} else {
