@@ -93,7 +93,7 @@ function getRecords(callback) {
             var id = this.Id;
             $j('<li></li>')
             .hide()
-            .append('<a href="#"><h2>' + this.Name + '</h2></a>')
+            .append('<a><h2>' + this.Name + '</h2></a>')
             .click(function(e) {
                 e.preventDefault();
                 $j.mobile.loading( "show", { text: 'Loading', textVisible: true } );
@@ -101,10 +101,12 @@ function getRecords(callback) {
                 ,
                 function(response) {
                     $j('#Name').html(response.Name);
+					$j('#FirstName').html(response.FirstName);
+					$j('#LastName').html(response.LastName);
                     $j('#Email').html(response.Email);
                     $j('#Id').val(response.Id);
                     $j.mobile.loading("hide");
-                    $j.mobile.changePage( "#detailpage" , { reverse: false, changeHash: false } );
+                    $j.mobile.changePage( "#detailpage" , { reverse: false, changeHash: true } );
                 }, errorCallback);
             })
             .appendTo('#list')
