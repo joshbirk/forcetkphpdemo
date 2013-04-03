@@ -76,6 +76,7 @@ $j(document).ready(function() {
 		for (var nvp in nvps) {
 		    var parts = nvps[nvp].split('=');
 			oauthResponse[parts[0]] = unescape(parts[1]);
+			sessionCallback(oauthResponse);
 		}
 	} else {
 		url = getAuthorizeUrl(loginUrl, clientId, redirectUri);
