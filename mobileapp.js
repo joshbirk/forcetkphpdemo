@@ -82,6 +82,7 @@ function addClickListeners() {
 
 // Populate the list and set up click handling
 function getRecords(callback) {
+	console.log('In getRecords');
     $j('#list').empty();
     client.query("SELECT Id, Name FROM Contact ORDER BY Name LIMIT 20"
     ,
@@ -96,9 +97,6 @@ function getRecords(callback) {
             .click(function(e) {
                 e.preventDefault();
                 $j.mobile.pageLoading();
-                // We could do this more efficiently by adding Industry and
-                // TickerSymbol to the fields in the SELECT, but we want to
-                // show dynamic use of the retrieve function...
                 client.retrieve("Contact", id, "Name,Id,Email"
                 ,
                 function(response) {
