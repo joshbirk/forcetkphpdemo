@@ -64,8 +64,7 @@ if (window.$j === undefined) {
 $j(document).ready(function() {
 	if(client.sessionId == null) {
 		var oauthResponse = {};
-
-		if (window.location.hash) {
+		if (window.location.hash && client.sessionId == null) {
 			var message = window.location.hash.substr(1);
 			var nvps = message.split('&');
 			for (var nvp in nvps) {
@@ -89,23 +88,21 @@ function getAuthorizeUrl(loginUrl, clientId, redirectUri){
 function sessionCallback(oauthResponse) {
     if (typeof oauthResponse === 'undefined'
         || typeof oauthResponse['access_token'] === 'undefined') {
-        //$j('#prompt').html('Error - unauthorized!');
         errorCallback({
             status: 0, 
             statusText: 'Unauthorized', 
             responseText: 'No OAuth response'
         });
     } else {
-        client.setSessionToken(oauthResponse.access_token, null,
-            oauthResponse.instance_url);
+        client.setSessionToken(oauthResponse.access_token, null, oauthResponse.instance_url);
 
 		addClickListeners();
 
-	    $j.mobile.changePage( "#mainpage" , { reverse: false, changeHash: true } );
 	    $j.mobile.loading( "show", { text: 'Loading', textVisible: true } );
 	    getRecords(function(){
 	        $j.mobile.loading( "hide" );
-	    });
+			$j.mobile.changePage( "#mainpage" , { reverse: false, changeHash: true } );
+		});
     }
 }
   </script>
