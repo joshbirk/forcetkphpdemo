@@ -31,7 +31,7 @@
   */
 
 function errorCallback(jqXHR){
-    alert(jqXHR.statusText + ": " + jqXHR.responseText);
+    console.log(jqXHR.statusText + ": " + jqXHR.responseText);
 }
 
 function addClickListeners() {
