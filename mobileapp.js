@@ -86,6 +86,7 @@ function getRecords(callback) {
     client.query("SELECT Id, Name FROM Contact ORDER BY Name LIMIT 20"
     ,
     function(response) {
+		console.log('recieved'+response.records);
         $j.each(response.records,
         function() {
             var id = this.Id;
@@ -108,11 +109,11 @@ function getRecords(callback) {
                     $j.mobile.changePage('#detailpage', "slide", false, true);
                 }, errorCallback);
             })
-            .appendTo('#accountlist')
+            .appendTo('#list')
             .show();
         });
 
-        $j('#accountlist').listview('refresh');
+        $j('#list').listview('refresh');
 
         if (typeof callback != 'undefined' && callback != null) {
             callback();
