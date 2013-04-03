@@ -71,9 +71,9 @@ $j(document).ready(function() {
 			for (var nvp in nvps) {
 			    var parts = nvps[nvp].split('=');
 				oauthResponse[parts[0]] = unescape(parts[1]);
-				console.log('init app');
-				if(oauthResponse['access_token']) {sessionCallback(oauthResponse);}
 			}
+			console.log('init app');
+			if(oauthResponse['access_token']) {sessionCallback(oauthResponse);}
 		} else {
 			url = getAuthorizeUrl(loginUrl, clientId, redirectUri);
 			window.location.href = url;
