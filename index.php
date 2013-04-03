@@ -53,21 +53,12 @@ var proxyUrl    = 'https://forcetkphpdemo.herokuapp.com/proxy.php?mode=native';
 
 // We'll get an instance of the REST API client in a callback after we do 
 // OAuth
-var client = new forcetk.Client(clientId, loginUrl, proxyUrl);;
+var client = new forcetk.Client(clientId, loginUrl, proxyUrl);
 
 // We use $j rather than $ for jQuery
-if (window.$j === undefined) {
-    $j = $;
-}
+$j = jQuery.noConflict();
 
 $j(document).ready(function() {
-/*	$j('#login').popupWindow({ 
-		windowURL: getAuthorizeUrl(loginUrl, clientId, redirectUri),
-		windowName: 'Connect',
-		centerBrowser: 1,
-		height:480, 
-		width:320
-	}); */
 	var oauthResponse = {};
 
 	if (window.location.hash) {

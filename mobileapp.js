@@ -103,7 +103,7 @@ function getRecords(callback) {
                     $j('#Name').html(response.Name);
                     $j('#Email').html(response.Email);
                     $j('#Id').val(response.Id);
-                    $j.mobile.loading( "hide");
+                    $j.mobile.loading("hide");
                     $j.mobile.changePage('#detailpage', "slide", false, true);
                 }, errorCallback);
             })
