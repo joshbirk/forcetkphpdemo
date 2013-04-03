@@ -71,7 +71,7 @@ $j(document).ready(function() {
 			    var parts = nvps[nvp].split('=');
 				oauthResponse[parts[0]] = unescape(parts[1]);
 				console.log('init app');
-				sessionCallback(oauthResponse);
+				if(oauthResponse['access_token']) {sessionCallback(oauthResponse);}
 			}
 		} else {
 			url = getAuthorizeUrl(loginUrl, clientId, redirectUri);
