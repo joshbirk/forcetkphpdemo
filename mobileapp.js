@@ -52,7 +52,7 @@ function addClickListeners() {
         client.del('Contact', $j('#detail').find('#Id').val()
         ,
         function(response) {
-            getAccounts(function() {
+            getRecords(function() {
                 $j.mobile.loading( "hide");
                 $j.mobile.changePage( "#mainpage" , { reverse: false, changeHash: false } );
             });
@@ -157,7 +157,7 @@ function updateHandler(e) {
     client.update('Contact', form.find('#Id').val(), fields
     ,
     function(response) {
-        getAccounts(function() {
+        getRecords(function() {
             $j.mobile.loading( "hide");
             $j.mobile.changePage( "#mainpage" , { reverse: false, changeHash: false } );
         });
