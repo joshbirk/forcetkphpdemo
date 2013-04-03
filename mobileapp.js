@@ -64,7 +64,7 @@ function addClickListeners() {
         e.preventDefault();
         $j.mobile.loading( "show", { text: 'Loading', textVisible: true } );
         client.retrieve("Contact", $j('#detail').find('#Id').val()
-        , "Name,Id,Email",
+        , "Name,FirstName,LastName,Id,Email",
         function(response) {
             $j('#form').find('input').each(function() {
                 $j(this).val(response[$j(this).attr("name")]);
