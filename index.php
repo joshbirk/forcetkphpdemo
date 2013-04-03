@@ -62,10 +62,10 @@ if (window.$j === undefined) {
 }
 
 $j(document).ready(function() {
-	console.log('DOCUMENT READY'+window.location.href);
+	console.log('DOCUMENT READY '+window.location.href);
 	if(client.sessionId == null) {
 		var oauthResponse = {};
-		if (window.location.hash && client.sessionId == null) {
+		if (window.location.hash) {
 			var message = window.location.hash.substr(1);
 			var nvps = message.split('&');
 			for (var nvp in nvps) {
@@ -102,10 +102,10 @@ function sessionCallback(oauthResponse) {
 		
 		$j.mobile.changePage( "#mainpage" , { reverse: false, changeHash: true } );
 	    $j.mobile.loading( "show", { text: 'Loading', textVisible: true } );
-/*	    getRecords(function(){
+	    getRecords(function(){
 	        $j.mobile.loading( "hide" );
 			
-		}); */
+		}); 
     }
 }
   </script>
