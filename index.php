@@ -123,7 +123,8 @@ function sessionCallback(oauthResponse) {
 	<div data-role="page" data-theme="b" id="mainpage">
 
 	    <div data-role="header">
-	        <h1>Contacts</h1>
+		<a href='#mainpage' id="back" class='ui-btn-left' data-icon='arrow-l'>Back</a>
+		    <h1>Contacts</h1>
 	    </div>
 	    <div data-role="content">
 	        <form>
@@ -139,7 +140,8 @@ function sessionCallback(oauthResponse) {
 	</div>
 	<div data-role="page" data-theme="b" id="detailpage">
 	    <div data-role="header">
-	        <h1>Contact Detail</h1>
+	    <a href='#mainpage' id="back" class='ui-btn-left' data-icon='arrow-l'>Back</a>
+		   <h1>Contact Detail</h1>
 	    </div>
 	    <div data-role="content">
 	        <table>
@@ -159,7 +161,8 @@ function sessionCallback(oauthResponse) {
 	</div>
 	<div data-role="page" data-theme="b" id="editpage">
 	    <div data-role="header">
-	        <h1 id="formheader">New Contact</h1>
+	    <a href='#mainpage' id="back" class='ui-btn-left' data-icon='arrow-l'>Back</a>
+	    	<h1 id="formheader">New Contact</h1>
 	    </div>
 	    <div data-role="content">
 	        <form name="contact" id="form">
