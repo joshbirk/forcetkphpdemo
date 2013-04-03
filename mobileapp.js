@@ -48,12 +48,12 @@ function addClickListeners() {
     $j('#deletebtn').click(function(e) {
         // Delete the account
         e.preventDefault();
-        $j.mobile.pageLoading();
+        $j.mobile.loading( "show", { text: 'Loading', textVisible: true } );
         client.del('Contact', $j('#detail').find('#Id').val()
         ,
         function(response) {
             getAccounts(function() {
-                $j.mobile.pageLoading(true);
+                $j.mobile.loading( "hide");
                 $j.mobile.changePage('#mainpage', "slide", true, true);
             });
         }, errorCallback);
@@ -62,7 +62,7 @@ function addClickListeners() {
     $j('#editbtn').click(function(e) {
         // Get account fields and show the 'Edit Account' form
         e.preventDefault();
-        $j.mobile.pageLoading();
+        $j.mobile.loading( "show", { text: 'Loading', textVisible: true } );
         client.retrieve("Contact", $j('#detail').find('#Id').val()
         , "Name,Id,Email",
         function(response) {
@@ -74,7 +74,7 @@ function addClickListeners() {
             $j('#actionbtn')
             .unbind('click.btn')
             .bind('click.btn', updateHandler);
-            $j.mobile.pageLoading(true);
+            $j.mobile.loading( "hide");
             $j.mobile.changePage('#editpage', "slide", false, true);
         }, errorCallback);
     });
@@ -96,14 +96,14 @@ function getRecords(callback) {
             .append('<a href="#"><h2>' + this.Name + '</h2></a>')
             .click(function(e) {
                 e.preventDefault();
-                $j.mobile.pageLoading();
+                $j.mobile.loading( "show", { text: 'Loading', textVisible: true } );
                 client.retrieve("Contact", id, "Name,Id,Email"
                 ,
                 function(response) {
                     $j('#Name').html(response.Name);
                     $j('#Email').html(response.Email);
                     $j('#Id').val(response.Id);
-                    $j.mobile.pageLoading(true);
+                    $j.mobile.loading( "hide");
                     $j.mobile.changePage('#detailpage', "slide", false, true);
                 }, errorCallback);
             })
@@ -130,11 +130,11 @@ function createHandler(e) {
             fields[child.attr("name")] = child.val();
         }
     });
-    $.mobile.loading( "show", { text: 'Loading Contacts', textVisible: true } );
+    $j.mobile.loading( "show", { text: 'Loading', textVisible: true } );
     client.create('Contact', fields,
     function(response) {
         getRecords(function() {
-            $.mobile.loading( "hide" );
+            $j.mobile.loading( "hide" );
             $j.mobile.changePage('#mainpage', "slide", true, true);
         });
     }, errorCallback);
@@ -151,12 +151,12 @@ function updateHandler(e) {
             fields[child.attr("name")] = child.val();
         }
     });
-    $j.mobile.pageLoading();
+    $j.mobile.loading( "show", { text: 'Loading', textVisible: true } );
     client.update('Contact', form.find('#Id').val(), fields
     ,
     function(response) {
         getAccounts(function() {
-            $j.mobile.pageLoading(true);
+            $j.mobile.loading( "hide");
             $j.mobile.changePage('#mainpage', "slide", true, true);
         });
     }, errorCallback);
