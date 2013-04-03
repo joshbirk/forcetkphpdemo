@@ -121,9 +121,7 @@ function sessionCallback(oauthResponse) {
 	    </div>
 	</div>
 	<div data-role="page" data-theme="b" id="mainpage">
-
 	    <div data-role="header">
-		<a href='#mainpage' id="back" class='ui-btn-left' data-icon='arrow-l'>Back</a>
 		    <h1>Contacts</h1>
 	    </div>
 	    <div data-role="content">
@@ -145,8 +143,9 @@ function sessionCallback(oauthResponse) {
 	    </div>
 	    <div data-role="content">
 	        <table>
-	            <tr><td>Name:</td><td id="Name"></td></tr>
-	            <tr><td>Email:</td><td id="Email"></td></tr>
+	            <tr><td>First Name:</td><td id="FirstName"></td></tr>
+	            <tr><td>Last Name:</td><td id="LastName"></td></tr>
+				<tr><td>Email:</td><td id="Email"></td></tr>
 	        </table>
 	        <form name="detail" id="detail">
 	            <input type="hidden" name="Id" id="Id" />
@@ -168,11 +167,11 @@ function sessionCallback(oauthResponse) {
 	        <form name="contact" id="form">
 	            <input type="hidden" name="Id" id="Id" />
 	            <table>
-	                <tr>
-						<td>Name:</td>
-						<td><input name="Name" id="Name" data-theme="c"/></td>
-					</tr>
-	                <tr>
+	                <tr><td>First Name:</td><td ><input name="FirstName" id="FirstName" 
+					  data-theme="c"/></td></tr>
+		            <tr><td>Last Name:</td><td ><input name="LastName" id="LastName" 
+						  data-theme="c"/></td></tr>
+					<tr>
 						<td>Email:</td>
 						<td><input name="Email" id="Email" 
 						  data-theme="c"/></td>
