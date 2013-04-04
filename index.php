@@ -48,7 +48,7 @@ From jQuery-swip - http://code.google.com/p/jquery-swip/source/browse/trunk/jque
 <script type="text/javascript">
 // OAuth Configuration
 var loginUrl    = 'https://login.salesforce.com/';
-var clientId    = '3MVG9A2kN3Bn17htFsz.Zr8IKNPRTz3FiPC7xCYILGF8XaGsUKX44CelH0LkqEC0GaOdrZk_Mkw5rM.mMtWmJ'; //demo only
+var clientId    = <?=$_ENV['client_id']?>; //demo only
 var redirectUri = 'https://forcetkphpdemo.herokuapp.com/index.php';
 var proxyUrl    = 'https://forcetkphpdemo.herokuapp.com/proxy.php?mode=native';
 
