@@ -49,8 +49,8 @@ From jQuery-swip - http://code.google.com/p/jquery-swip/source/browse/trunk/jque
 // OAuth Configuration
 var loginUrl    = 'https://login.salesforce.com/';
 var clientId    = '<?=$_ENV['client_id']?>'; //demo only
-var redirectUri = '<?=$_ENV['application_url']?>/index.php';
-var proxyUrl    = '<?=$_ENV['application_url']?>/proxy.php?mode=native';
+var redirectUri = '<?=$_ENV['app_url']?>/index.php';
+var proxyUrl    = '<?=$_ENV['app_url']?>/proxy.php?mode=native';
 
 // We'll get an instance of the REST API client in a callback after we do 
 // OAuth
